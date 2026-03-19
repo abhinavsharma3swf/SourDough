@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@supabase/supabase-js": "^2.99.3",
+    "mui-color-input": "^7.0.0",
+    "react-router-dom": "^7.13.1"
+  }
+}
