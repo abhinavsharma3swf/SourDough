@@ -149,7 +149,7 @@ export const InputForm = () => {
                         </span>
 
                         <span className="block">
-                            By proceeding with your purchase, you voluntarily assume all risks associated with consumption, including but not limited to foodborne illness, allergic reactions, or other adverse effects.
+                            By proceeding with your request, you voluntarily assume all risks associated with consumption, including but not limited to foodborne illness, allergic reactions, or other adverse effects.
                         </span>
 
                         <span className="block">
