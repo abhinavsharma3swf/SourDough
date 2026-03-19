@@ -28,7 +28,7 @@ export const AdminDashboard = () => {
         setErrorMessage("");
 
         const { data, error } = await supabase
-            .from("Order_Table")
+            .from("instruments")
             .select("*")
             .order("created_at", { ascending: false });
 

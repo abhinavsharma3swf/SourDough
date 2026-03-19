@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import React, {useState} from "react";
+import {createClient} from "@supabase/supabase-js";
 
 const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
@@ -24,7 +24,7 @@ export const InputForm = () => {
     const [submitted, setSubmitted] = useState<InputFormType | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type } = e.target;
+        const {name, value, type} = e.target;
 
         setFormData((prev) => ({
             ...prev,
@@ -32,16 +32,10 @@ export const InputForm = () => {
         }));
     };
 
-    // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
-    //     console.log(formData);
-    //     setSubmitted(formData);
-    // };
-
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
-        const { data, error } = await supabase
+        const {data, error} = await supabase
             .from("instruments") // make sure this matches your table name EXACTLY
             .insert([
                 {
@@ -72,7 +66,8 @@ export const InputForm = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-pink-100 via-indigo-50 to-cyan-100 flex items-center justify-center p-6">
+        <div
+            className="min-h-screen bg-gradient-to-br from-pink-100 via-indigo-50 to-cyan-100 flex items-center justify-center p-6">
             <div className="w-full max-w-md rounded-2xl bg-white shadow-2xl p-7 border border-gray-100">
                 <h2 className="text-3xl font-bold text-gray-800">Order Form</h2>
                 <p className="text-sm text-gray-500 mt-2 mb-6">
@@ -139,6 +134,32 @@ export const InputForm = () => {
                             className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"
                         />
                     </div>
+
+                    <p className="text-sm text-gray-500 mt-2 mb-6 leading-relaxed space-y-3">
+                        <span className="block font-medium text-gray-700">
+                            Disclaimer
+                        </span>
+
+                        <span className="block">
+                            By submitting this form and consuming this bread, you acknowledge and agree to the following:
+                        </span>
+
+                        <span className="block">
+                            This product is homemade and is not prepared, inspected, or certified by any local, state, or federal health department or food safety authority. It may have been produced in a home kitchen that is not subject to regulatory inspection.
+                        </span>
+
+                        <span className="block">
+                            By proceeding with your purchase, you voluntarily assume all risks associated with consumption, including but not limited to foodborne illness, allergic reactions, or other adverse effects.
+                        </span>
+
+                        <span className="block">
+                            You agree to release, waive, and hold harmless the bread baker from any and all liability, claims, damages, or expenses arising from or related to the consumption of this product.
+                        </span>
+
+                        <span className="block">
+                            If you have food allergies or dietary concerns, it is your responsibility to inquire about ingredients prior to purchase and consumption.
+                        </span>
+                    </p>
 
                     <button
                         type="submit"

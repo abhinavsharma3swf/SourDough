@@ -1,8 +1,8 @@
 import {useNavigate} from 'react-router-dom';
+import  sourdoughlogo  from './assets/sourdoughlogo.png';
 
 export const WelcomePage = () => {
 
-    const logo = "./src/assests/Screenshot.png"
     const navigate = useNavigate();
     return (
         <div className="min-h-screen bg-gradient-to-br from-amber-200 via-orange-100 to-yellow-50 flex items-center justify-center px-6">
@@ -10,7 +10,7 @@ export const WelcomePage = () => {
             <div className="bg-white/80 backdrop-blur-md shadow-xl rounded-2xl p-10 max-w-md w-full text-center border border-white/40">
 
                 <img
-                    src={logo}
+                    src={sourdoughlogo}
                     alt="Sourdough Logo"
                     className="w-20 h-20 mx-auto mb-4 object-contain"
                 />
