@@ -159,6 +159,10 @@ export const InputForm = () => {
                         <span className="block">
                             If you have food allergies or dietary concerns, it is your responsibility to inquire about ingredients prior to purchase and consumption.
                         </span>
+
+                        <span className="block">
+                            Please allow 24-48 hours for your specially ordered loaf to be ready.
+                        </span>
                     </p>
 
                     <button
