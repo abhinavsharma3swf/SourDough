@@ -1,5 +1,4 @@
 import {useNavigate} from 'react-router-dom';
-import  sourdoughlogo  from './assets/sourdoughlogo.png';
 
 export const WelcomePage = () => {
 
@@ -10,7 +9,7 @@ export const WelcomePage = () => {
             <div className="bg-white/80 backdrop-blur-md shadow-xl rounded-2xl p-10 max-w-md w-full text-center border border-white/40">
 
                 <img
-                    src={sourdoughlogo}
+                    src='sourdoughlogo.PNG'
                     alt="Sourdough Logo"
                     className="w-20 h-20 mx-auto mb-4 object-contain"
                 />
