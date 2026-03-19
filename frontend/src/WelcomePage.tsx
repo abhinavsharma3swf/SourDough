@@ -3,10 +3,11 @@ import {useNavigate} from 'react-router-dom';
 export const WelcomePage = () => {
 
     const navigate = useNavigate();
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-amber-200 via-orange-100 to-yellow-50 flex items-center justify-center px-6">
 
-            <div className="bg-white/80 backdrop-blur-md shadow-xl rounded-2xl p-10 max-w-md w-full text-center border border-white/40">
+            <div className="bg-white/80 backdrop-blur-md shadow-xl rounded-2xl p-30 max-w-screen-lg w-full text-center border border-white/40">
 
                 <img
                     src='sourdoughlogo.PNG'
@@ -14,7 +15,7 @@ export const WelcomePage = () => {
                     className="w-20 h-20 mx-auto mb-4 object-contain"
                 />
                 <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
-                    Welcome 👋
+                    Welcome to SourDough Bakery 👋
                 </h1>
 
                 <p className="text-gray-600 mb-6">

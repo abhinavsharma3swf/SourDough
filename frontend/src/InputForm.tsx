@@ -40,8 +40,8 @@ export const InputForm = () => {
             .insert([
                 {
                     name: formData.name,
-                    email: formData.email,
-                    phone: formData.phone,
+                    email: formData.email || '',
+                    phone: formData.phone || null,
                     quantity: formData.quantity,
                 },
             ])
@@ -77,9 +77,10 @@ export const InputForm = () => {
                 <form className="grid gap-4" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1">
-                            Name
+                            Name (Required)
                         </label>
                         <input
+                            required
                             id="name"
                             name="name"
                             value={formData.name}
@@ -121,9 +122,10 @@ export const InputForm = () => {
 
                     <div>
                         <label htmlFor="quantity" className="block text-sm font-semibold text-gray-700 mb-1">
-                            Quantity
+                            Quantity (Required)
                         </label>
                         <input
+                            required
                             id="quantity"
                             name="quantity"
                             type="number"
