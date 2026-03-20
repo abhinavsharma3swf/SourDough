@@ -3,7 +3,7 @@ import { InputForm } from "./InputForm";
 import { AdminLogin } from "./AdminLogin";
 import { AdminDashboard } from "./AdminDashboard";
 import { WelcomePage } from "./WelcomePage";
-
+import { Analytics } from '@vercel/analytics/react';
 function App() {
     return (
         <div>
@@ -43,6 +43,7 @@ function App() {
                 />
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
+            <Analytics />
         </div>
     );
 }
