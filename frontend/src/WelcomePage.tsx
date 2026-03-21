@@ -19,13 +19,19 @@ export const WelcomePage = () => {
                 </h1>
 
                 <p className="text-gray-600 mb-6">
-                    Glad you're here. Get started by filling out your details.
+                    Glad you're here. Get started by log-in or create an account.
                 </p>
 
-                <button className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold shadow-md hover:scale-[1.02] transition"
-                        onClick={() => navigate("/form")}
+                <button className="w-full py-3 rounded-xl bg-blue-500 text-white font-semibold shadow-md hover:scale-[1.02] transition mb-5"
+                        onClick={() => navigate("/signup")}
                 >
-                    Get Started
+                    Sign-up
+                </button>
+
+                <button className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold shadow-md hover:scale-[1.02] transition"
+                        onClick={() => navigate("/login")}
+                >
+                    Login
                 </button>
 
             </div>

@@ -32,7 +32,7 @@ export const InputForm = () => {
         }));
     };
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const {data, error} = await supabase
@@ -68,7 +68,7 @@ export const InputForm = () => {
     return (
         <div
             className="min-h-screen bg-gradient-to-br from-pink-100 via-indigo-50 to-cyan-100 flex items-center justify-center p-6">
-            <div className="w-full max-w-md rounded-2xl bg-white shadow-2xl p-7 border border-gray-100">
+            <div className="w-full max-w-lg rounded-2xl bg-white shadow-2xl p-7 border border-gray-100">
                 <h2 className="text-3xl font-bold text-gray-800">Order Form</h2>
                 <p className="text-sm text-gray-500 mt-2 mb-6">
                     Fill in your details below.
@@ -137,7 +137,7 @@ export const InputForm = () => {
                         />
                     </div>
 
-                    <p className="text-sm text-gray-500 mt-2 mb-6 leading-relaxed space-y-3">
+                    <p className="text-xs text-gray-500 mt-2 mb-2 leading-relaxed space-y-3">
                         <span className="block font-medium text-gray-700">
                             Disclaimer
                         </span>
@@ -169,7 +169,7 @@ export const InputForm = () => {
 
                     <button
                         type="submit"
-                        className="mt-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-4 py-3 text-white font-semibold shadow-lg hover:scale-[1.02] transition"
+                        className="rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-4 py-3 text-white font-semibold shadow-lg hover:scale-[1.10] transition"
                     >
                         Submit
                     </button>
@@ -177,7 +177,7 @@ export const InputForm = () => {
                 </form>
 
                 {submitted && (
-                    <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div className="mt-3 rounded-xl border border-gray-200 bg-gray-50 p-2">
                         <h3 className="font-bold text-gray-800 mb-2">Submitted Data</h3>
                         <p><strong>Name:</strong> {submitted.name}</p>
                         <p><strong>Email:</strong> {submitted.email}</p>
