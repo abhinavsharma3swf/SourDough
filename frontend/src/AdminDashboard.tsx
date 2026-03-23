@@ -13,7 +13,9 @@ interface OrderRow {
     email: string;
     phone: string;
     quantity: number;
-    created_at?: string;
+    inserted_at?: string;
+    updated_at?: string;
+    status: string;
 }
 
 export const AdminDashboard = () => {
@@ -57,7 +59,32 @@ export const AdminDashboard = () => {
         fetchOrders();
     }, []);
 
-    console.log(orders, "orders");
+    const updatedStatus = async (orderId: number) => {
+        const newOrders = orders.map((order)=> {
+            if(orderId === order.id)
+            return {...order, status: "Active"};
+            return order;
+        })
+        setOrders(newOrders);
+
+        const {data} = await supabase
+            .from("orders")
+            .upsert([
+                {
+                    id: orderId,
+                    status: "Confirmed",
+                    updatedAt: new Date()
+                }
+            ])
+        console.log(data);
+    }
+
+    const status = [
+        {label: "Confirmed", value: "Confirmed"},
+        {label: "Pending", value: "Pending"},
+    ]
+
+
 
     return (
         <div className="min-h-screen bg-gray-100 p-6">
@@ -108,7 +135,10 @@ export const AdminDashboard = () => {
                                 <th className="border-b px-4 py-3 text-left">Email</th>
                                 <th className="border-b px-4 py-3 text-left">Phone</th>
                                 <th className="border-b px-4 py-3 text-left">Quantity</th>
+                                <th className="border-b px-4 py-3 text-left">Status</th>
                                 <th className="border-b px-4 py-3 text-left">Created</th>
+                                <th className="border-b px-4 py-3 text-left">Updated At</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -120,8 +150,20 @@ export const AdminDashboard = () => {
                                     <td className="border-b px-4 py-3">{order.phone}</td>
                                     <td className="border-b px-4 py-3">{order.quantity}</td>
                                     <td className="border-b px-4 py-3">
-                                        {order.created_at
-                                            ? new Date(order.created_at).toLocaleString()
+                                        <select className="border-b px-4 py-3"
+                                                onChange={()=>updatedStatus(order.id)}>
+                                            <option key={order.status} value={order.status}>{order.status}</option>
+                                            <option key={status[1].label} value={status[1].value}>{status[1].label}</option>
+                                        </select>
+                                    </td>
+                                    <td className="border-b px-4 py-3">
+                                        {order.inserted_at
+                                            ? new Date(order.inserted_at).toLocaleString()
+                                            : "-"}
+                                    </td>
+                                    <td className="border-b px-4 py-3">
+                                        {order.updated_at
+                                            ? new Date(order.updated_at).toLocaleString()
                                             : "-"}
                                     </td>
                                 </tr>

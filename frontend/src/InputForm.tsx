@@ -13,6 +13,7 @@ interface InputFormType {
     email: string;
     quantity: number;
     size: string;
+    status: string;
 }
 
 export const InputForm = ({session}: any) => {
@@ -23,6 +24,7 @@ export const InputForm = ({session}: any) => {
         email: "",
         quantity: 1,
         size: "",
+        status: "",
     });
 
     const [submitted, setSubmitted] = useState<InputFormType | null>(null);
@@ -57,6 +59,7 @@ export const InputForm = ({session}: any) => {
                     quantity: formData.quantity,
                     user_id: session?.user?.id,
                     size: formData.size,
+                    status: 'Pending',
                 },
             ])
             .select();
@@ -73,6 +76,7 @@ export const InputForm = ({session}: any) => {
             phone: "",
             quantity: 1,
             size: "",
+            status: "",
         });
     };
 
