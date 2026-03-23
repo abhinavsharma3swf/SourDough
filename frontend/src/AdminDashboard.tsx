@@ -28,9 +28,9 @@ export const AdminDashboard = () => {
         setErrorMessage("");
 
         const { data, error } = await supabase
-            .from("instruments")
+            .from("orders")
             .select("*")
-            .order("created_at", { ascending: false });
+            .order("inserted_at", { ascending: false });
 
         if (error) {
             setErrorMessage(error.message);
@@ -56,6 +56,8 @@ export const AdminDashboard = () => {
     useEffect(() => {
         fetchOrders();
     }, []);
+
+    console.log(orders, "orders");
 
     return (
         <div className="min-h-screen bg-gray-100 p-6">
