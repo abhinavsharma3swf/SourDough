@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 
-export const OurStoryPage = () => {
+export const OurStoryPage = ({session} : any) => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-100 flex flex-col items-center px-2 py-6">
@@ -38,12 +38,21 @@ export const OurStoryPage = () => {
             </div>
 
             <div className="mt-10">
-                <Link
-                    to="/login"
+                {session ?
+                    <Link
+                    to="/form"
                     className="rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 px-6 py-3 text-white font-semibold shadow-lg hover:scale-105 transition"
                 >
                     Place An Order
-                </Link>
+                </Link> :
+
+                    <Link
+                        to="/login"
+                        className="rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 px-6 py-3 text-white font-semibold shadow-lg hover:scale-105 transition"
+                    >
+                        Place An Order
+                    </Link>}
+
             </div>
 
         </div>

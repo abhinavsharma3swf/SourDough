@@ -35,6 +35,7 @@ function App() {
         } = supabase.auth.onAuthStateChange((_event, session) => {
             setSession(session);
         });
+
         return () => subscription.unsubscribe();
     }, []);
 
@@ -47,16 +48,13 @@ function App() {
             console.error("Logout error:", error);
             return;
         }
-
         navigate("/");
     };
 
     return (
         <div>
-
             <div
                 className="bg-gradient-to-br from-amber-200 via-orange-100 to-yellow-50 relative flex items-center justify-between p-4">
-
                 {/* LEFT */}
                 <div className="flex items-center gap-3">
                     <img
@@ -72,7 +70,7 @@ function App() {
 
                 {/* CENTER (absolute for true centering) */}
                 <div className="absolute left-1/2 transform -translate-x-1/2">
-                    <span className="italic text-4xl underline">Home Made Sour-Dough Bread</span>
+                    <span className="italic text-4xl underline">Homemade Sourdough Bread</span>
                 </div>
 
 
@@ -116,12 +114,12 @@ function App() {
             </div>
 
             <Routes>
-                <Route path="/" element={<OurStoryPage/>}/>
+                <Route path="/" element={<OurStoryPage session = {session}/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route
                     path="/form"
-                    element={session ? <InputForm/> : <Navigate to="/" replace/>}
+                    element={session ? <InputForm session={session}/> : <Navigate to="/" replace/>}
                 />
                 <Route path="/admin" element={<AdminLogin/>}/>
                 <Route path="/dashboard" element={<AdminDashboard/>}/>

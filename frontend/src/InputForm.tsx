@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {createClient} from "@supabase/supabase-js";
+// import type {Session} from "@supabase/supabase-js";
 
 const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
@@ -8,16 +9,17 @@ const supabase = createClient(
 
 interface InputFormType {
     name: string;
-    email: string;
     phone: string;
+    email: string;
     quantity: number;
 }
 
-export const InputForm = () => {
+export const InputForm = ({session}: any) => {
+
     const [formData, setFormData] = useState<InputFormType>({
         name: "",
-        email: "",
         phone: "",
+        email: "",
         quantity: 1,
     });
 
@@ -36,13 +38,14 @@ export const InputForm = () => {
         e.preventDefault();
 
         const {data, error} = await supabase
-            .from("instruments") // make sure this matches your table name EXACTLY
+            .from("orders") // make sure this matches your table name EXACTLY
             .insert([
                 {
                     name: formData.name,
-                    email: formData.email || '',
+                    email: session?.user?.email,
                     phone: formData.phone || null,
                     quantity: formData.quantity,
+                    user_id: session?.user?.id,
                 },
             ])
             .select();
@@ -51,11 +54,8 @@ export const InputForm = () => {
             console.error("Insert error:", error);
             return;
         }
-
         console.log("Inserted:", data);
-
         setSubmitted(formData);
-
         // optional: reset form
         setFormData({
             name: "",
@@ -90,20 +90,20 @@ export const InputForm = () => {
                         />
                     </div>
 
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
-                            Email
-                        </label>
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="Enter your email"
-                            className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"
-                        />
-                    </div>
+                    {/*<div>*/}
+                    {/*    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">*/}
+                    {/*        Email*/}
+                    {/*    </label>*/}
+                    {/*    <input*/}
+                    {/*        id="email"*/}
+                    {/*        name="email"*/}
+                    {/*        type="email"*/}
+                    {/*        value={formData.email}*/}
+                    {/*        onChange={handleChange}*/}
+                    {/*        placeholder="Enter your email"*/}
+                    {/*        className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"*/}
+                    {/*    />*/}
+                    {/*</div>*/}
 
                     <div>
                         <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-1">
@@ -180,7 +180,7 @@ export const InputForm = () => {
                     <div className="mt-3 rounded-xl border border-gray-200 bg-gray-50 p-2">
                         <h3 className="font-bold text-gray-800 mb-2">Submitted Data</h3>
                         <p><strong>Name:</strong> {submitted.name}</p>
-                        <p><strong>Email:</strong> {submitted.email}</p>
+                        {/*<p><strong>Email:</strong> {submitted.email}</p>*/}
                         <p><strong>Phone:</strong> {submitted.phone}</p>
                         <p><strong>Quantity:</strong> {submitted.quantity}</p>
                     </div>

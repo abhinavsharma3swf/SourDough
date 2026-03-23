@@ -39,6 +39,22 @@ export const Login = () => {
             email,
             password,
         });
+        if (data.user) {
+            const { error: userInsertError } = await supabase
+                .from("users")
+                .upsert([
+                    {
+                        id: data.user.id,
+                        email: data.user.email,
+                    }
+                ]);
+
+            if (userInsertError) {
+                setErrorMessage(userInsertError.message);
+                setLoading(false);
+                return;
+            }
+        }
 
         console.log("login data:", data);
         console.log("login error:", error);

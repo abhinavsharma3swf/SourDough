@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {createClient} from "@supabase/supabase-js";
+import {useNavigate} from 'react-router-dom';
 
 const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
@@ -26,7 +27,8 @@ export const SignUp = () => {
         const { name, value } = e.target;
         setSignUpFormData((prev) => ({ ...prev, [name]: value }));
     }
-    console.log(signUpFormData, "signUpFormData")
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -46,13 +48,14 @@ export const SignUp = () => {
             setLoading(false);
             return;
         }
-
         setSuccessMessage("Account created.");
         setSignUpFormData({
             email: "",
             password: "",
         });
+
         setLoading(false);
+        navigate("/login");
     };
 
 
