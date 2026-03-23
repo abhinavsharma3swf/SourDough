@@ -13,7 +13,7 @@ export const OurStoryPage = ({session} : any) => {
                     Our Story
                 </h1>
 
-                <img src='src/breadpicture.PNG' alt="Bread picture" />
+                <img src='src/assets/breadpicture.PNG' alt="Bread picture" />
 
                 <p className="text-gray-600 text-lg">
                     Simple ingredients. Honest process. Bread you can trust.
