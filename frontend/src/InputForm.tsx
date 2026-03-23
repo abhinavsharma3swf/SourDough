@@ -12,6 +12,7 @@ interface InputFormType {
     phone: string;
     email: string;
     quantity: number;
+    size: string;
 }
 
 export const InputForm = ({session}: any) => {
@@ -21,6 +22,7 @@ export const InputForm = ({session}: any) => {
         phone: "",
         email: "",
         quantity: 1,
+        size: "",
     });
 
     const [submitted, setSubmitted] = useState<InputFormType | null>(null);
@@ -34,6 +36,14 @@ export const InputForm = ({session}: any) => {
         }));
     };
 
+    const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const {name, value} = event.target;
+        setFormData((prev)=>({
+            ...prev,
+            [name]: value,
+        }))
+    }
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -46,6 +56,7 @@ export const InputForm = ({session}: any) => {
                     phone: formData.phone || null,
                     quantity: formData.quantity,
                     user_id: session?.user?.id,
+                    size: formData.size,
                 },
             ])
             .select();
@@ -61,8 +72,16 @@ export const InputForm = ({session}: any) => {
             email: "",
             phone: "",
             quantity: 1,
+            size: "",
         });
     };
+
+    const options = [
+        { label: "Small", value: "Small" },
+        { label: "Medium", value: "Medium" },
+        { label: "Large", value: "Large" },
+    ]
+
 
     return (
         <div
@@ -89,21 +108,6 @@ export const InputForm = ({session}: any) => {
                         />
                     </div>
 
-                    {/*<div>*/}
-                    {/*    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">*/}
-                    {/*        Email*/}
-                    {/*    </label>*/}
-                    {/*    <input*/}
-                    {/*        id="email"*/}
-                    {/*        name="email"*/}
-                    {/*        type="email"*/}
-                    {/*        value={formData.email}*/}
-                    {/*        onChange={handleChange}*/}
-                    {/*        placeholder="Enter your email"*/}
-                    {/*        className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"*/}
-                    {/*    />*/}
-                    {/*</div>*/}
-
                     <div>
                         <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-1">
                             Phone
@@ -117,6 +121,26 @@ export const InputForm = ({session}: any) => {
                             placeholder="Enter your phone number"
                             className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"
                         />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-1">
+                            Choose the loaf size
+                        <select
+                            id="size"
+                            name="size"
+                            value={formData.size}
+                            onChange={handleOptionChange}
+                            className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"
+                            >
+
+                            {options.map((option) => (
+                                <option key={option.value} value={option.value}>
+                                    {option.label}
+                                </option>
+                            ))}
+                        </select>
+                        </label>
                     </div>
 
                     <div>
