@@ -25,15 +25,15 @@ export const OurStoryPage = ({session} : any) => {
             <div className="max-w-5xl bg-white rounded-2xl shadow-xl p-4 border border-gray-100 leading-relaxed text-gray-700 text-lg">
 
                 <p className="mb-4">
-                    After moving from Germany, I struggled to find bread made the way I believed it should be — with only a few simple, honest ingredients: organic flour, water, salt, and a natural sourdough starter.
+                    After moving from Germany, I struggled to find bread made the way I believed it should be with only a few simple, honest ingredients: organic flour, water, salt, and a natural sourdough starter.
                 </p>
 
                 <p className="mb-4">
-                    What began as a personal pursuit for healthier, preservative-free bread quickly turned into a passion. Through time, patience, and practice, that passion grew into something more — beautifully crafted sourdough bread that is both nourishing and deeply flavorful.
+                    What began as a personal pursuit for healthier, preservative-free bread quickly turned into a passion. Through time, patience, and practice, that passion grew into something more beautifully crafted sourdough bread that is both nourishing and deeply flavorful.
                 </p>
 
                 <p>
-                    Today, our mission is simple: to provide authentic, handcrafted sourdough made with only four ingredients, prepared with care and intention. Every loaf is baked to bring you and your family bread you can trust — wholesome, delicious, and free from unnecessary additives.
+                    Today, our mission is simple: to provide authentic, handcrafted sourdough made with only four ingredients, prepared with care and intention. Every loaf is baked to bring you and your family bread you can trust wholesome, delicious, and free from unnecessary additives.
                 </p>
 
             </div>
