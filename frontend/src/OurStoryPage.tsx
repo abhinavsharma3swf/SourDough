@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 
 
+
 export const OurStoryPage = ({session} : any) => {
 
     return (
@@ -13,7 +14,7 @@ export const OurStoryPage = ({session} : any) => {
                     Our Story
                 </h1>
 
-                <img src='src/breadpicture.PNG' alt="Bread picture" />
+                <img src='src/breadpicture.png' alt="Bread picture" />
 
                 <p className="text-gray-600 text-lg">
                     Simple ingredients. Honest process. Bread you can trust.
