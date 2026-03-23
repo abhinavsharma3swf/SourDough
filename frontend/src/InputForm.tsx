@@ -37,7 +37,7 @@ export const InputForm = ({session}: any) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const {data, error} = await supabase
+        const {error} = await supabase
             .from("orders") // make sure this matches your table name EXACTLY
             .insert([
                 {
@@ -54,7 +54,6 @@ export const InputForm = ({session}: any) => {
             console.error("Insert error:", error);
             return;
         }
-        console.log("Inserted:", data);
         setSubmitted(formData);
         // optional: reset form
         setFormData({
