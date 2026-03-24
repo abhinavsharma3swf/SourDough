@@ -81,9 +81,9 @@ export const InputForm = ({session}: any) => {
     };
 
     const options = [
-        { label: "Small", value: "Small" },
-        { label: "Medium", value: "Medium" },
-        { label: "Large", value: "Large" },
+        { label: "Small (300 Grams approx) ", value: "Small" },
+        { label: "Medium (500 Grams aprox) ", value: "Medium" },
+        { label: "Large (700 Grams aprrox) ", value: "Large" },
     ]
 
 
