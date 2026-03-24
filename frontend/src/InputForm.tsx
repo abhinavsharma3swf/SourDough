@@ -186,7 +186,7 @@ export const InputForm = ({session}: any) => {
                         </span>
 
                         <span className="block">
-                            If you have food allergies or dietary concerns, it is your responsibility to inquire about ingredients prior to purchase and consumption.
+                            If you have food allergies or dietary concerns, it is your responsibility to inquire about ingredients prior to consumption.
                         </span>
 
                         <span className="block">

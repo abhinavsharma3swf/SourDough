@@ -51,6 +51,8 @@ function App() {
         navigate("/");
     };
 
+    setTimeout(handleLogout, 600000);
+
     return (
         <div>
             <div

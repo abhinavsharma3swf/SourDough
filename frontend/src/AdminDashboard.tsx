@@ -55,6 +55,8 @@ export const AdminDashboard = () => {
         navigate("/");
     };
 
+    setTimeout(handleLogout, 600000);
+
     useEffect(() => {
         fetchOrders();
     }, []);
@@ -69,13 +71,15 @@ export const AdminDashboard = () => {
 
         const {data} = await supabase
             .from("orders")
-            .upsert([
-                {
-                    id: orderId,
-                    status: "Confirmed",
-                    updatedAt: new Date()
-                }
-            ])
+            .update({status: "Confirmed"})
+            .eq('id', orderId)
+            // .upsert([
+            //     {
+            //         id: orderId,
+            //         status: "Confirmed",
+            //         updated_at: new Date()
+            //     }
+            // ])
         console.log(data);
     }
 
@@ -153,7 +157,7 @@ export const AdminDashboard = () => {
                                         <select className="border-b px-4 py-3"
                                                 onChange={()=>updatedStatus(order.id)}>
                                             <option key={order.status} value={order.status}>{order.status}</option>
-                                            <option key={status[1].label} value={status[1].value}>{status[1].label}</option>
+                                            <option key={status[0].label} value={status[0].value}>{status[0].label}</option>
                                         </select>
                                     </td>
                                     <td className="border-b px-4 py-3">

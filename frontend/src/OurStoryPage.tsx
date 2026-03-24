@@ -25,7 +25,7 @@ export const OurStoryPage = ({session} : any) => {
             <div className="max-w-5xl bg-white rounded-2xl shadow-xl p-4 border border-gray-100 leading-relaxed text-gray-700 text-lg">
 
                 <p className="mb-4">
-                    After moving from Germany, I struggled to find bread made the way I believed it should be with only a few simple, honest ingredients: organic flour, water, salt, and a natural sourdough starter.
+                    After living in Germany for almost three years and moving back to the United States, I struggled to find bread made the way I believed it should be with only a few simple, honest ingredients: organic flour, water, salt, and a natural sourdough starter.
                 </p>
 
                 <p className="mb-4">
@@ -33,7 +33,7 @@ export const OurStoryPage = ({session} : any) => {
                 </p>
 
                 <p>
-                    Today, our mission is simple: to provide authentic, handcrafted sourdough made with only four ingredients, prepared with care and intention. Every loaf is baked to bring you and your family bread you can trust wholesome, delicious, and free from unnecessary additives.
+                    Today, my mission is simple: to provide authentic, handcrafted sourdough made with only four ingredients. Every loaf is baked to bring you and your family bread you can trust wholesome, delicious, and free from unnecessary additives.
                 </p>
 
             </div>
