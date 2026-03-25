@@ -2,7 +2,6 @@ import {Link, Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import {InputForm} from "./InputForm";
 import {AdminLogin} from "./AdminLogin";
 import {AdminDashboard} from "./AdminDashboard";
-// import {WelcomePage} from "./WelcomePage";
 import {Analytics} from "@vercel/analytics/react";
 import {SignUp} from "./SignUp";
 import {Login} from "./Login";
@@ -54,6 +53,8 @@ function App() {
 
     setTimeout(handleLogout, 600000);
 
+    const [aFlag, setAFlag] = useState<boolean>(false)
+
     return (
         <div>
             <div
@@ -102,20 +103,29 @@ function App() {
                 {session && (
 
                     <div className="flex justify-end gap-3">
-                        <Link
+                        {!aFlag && <Link
                             to="/history"
                             className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
+                            onClick={() => setAFlag(true)}
                         >
                             History
-                        </Link>
+                        </Link>}
+
+                        {aFlag && <Link
+                            to="/form"
+                            className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
+                            onClick={() => setAFlag(false)}
+                        >
+                            Place An Order
+                        </Link>}
 
 
-                    <button
-                        onClick={handleLogout}
-                        className="rounded-xl bg-red-800 px-4 py-2 text-white font-semibold"
-                    >
-                        Logout
-                    </button>
+                        <button
+                            onClick={handleLogout}
+                            className="rounded-xl bg-red-800 px-4 py-2 text-white font-semibold"
+                        >
+                            Logout
+                        </button>
                     </div>
                 )}
             </div>
@@ -130,7 +140,7 @@ function App() {
             </div>
 
             <Routes>
-                <Route path="/" element={<OurStoryPage session = {session}/>}/>
+                <Route path="/" element={<OurStoryPage session={session}/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route

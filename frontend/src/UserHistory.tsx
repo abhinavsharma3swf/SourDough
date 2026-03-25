@@ -34,7 +34,6 @@ export const UserHistory = () => {
         const { data, error } = await supabase
             .from("orders")
             .select("*")
-            .order("inserted_at", { ascending: false });
 
         if (error) {
             setErrorMessage(error.message);
@@ -53,7 +52,6 @@ export const UserHistory = () => {
             console.error("Logout error:", error);
             return;
         }
-
         navigate("/");
     };
 
@@ -70,13 +68,10 @@ export const UserHistory = () => {
             <table className="min-w-full border border-gray-200">
                 <thead className="bg-gray-100">
                 <tr>
-                    <th className="border-b px-4 py-3 text-left">ID</th>
                     <th className="border-b px-4 py-3 text-left">Name</th>
-                    <th className="border-b px-4 py-3 text-left">Email</th>
                     <th className="border-b px-4 py-3 text-left">Phone</th>
                     <th className="border-b px-4 py-3 text-left">Quantity</th>
                     <th className="border-b px-4 py-3 text-left">Status</th>
-                    <th className="border-b px-4 py-3 text-left">Created</th>
                     <th className="border-b px-4 py-3 text-left">Updated At</th>
 
                 </tr>
@@ -85,9 +80,7 @@ export const UserHistory = () => {
                     <tbody>
                 {orders.map((order) => (
                     <tr key={order.id}>
-                        <td className="border-b px-4 py-3">{order.id}</td>
                         <td className="border-b px-4 py-3">{order.name}</td>
-                        <td className="border-b px-4 py-3">{order.email}</td>
                         <td className="border-b px-4 py-3">{order.phone}</td>
                         <td className="border-b px-4 py-3">{order.quantity}</td>
                         <td className="border-b px-4 py-3">
@@ -97,11 +90,6 @@ export const UserHistory = () => {
                                 {/*{order.status !== "confirmed" && <option key={status[0].label} value={status[0].value}>{status[0].label}</option>}*/}
                                 {/*{order.status === 'Confirmed' && <option key={status[1].label} value={status[1].value}>{status[1].label}</option>}*/}
                             </select>
-                        </td>
-                        <td className="border-b px-4 py-3">
-                            {order.inserted_at
-                                ? new Date(order.inserted_at).toLocaleString()
-                                : "-"}
                         </td>
                         <td className="border-b px-4 py-3">
                             {order.updated_at

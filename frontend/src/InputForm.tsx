@@ -122,7 +122,7 @@ export const InputForm = ({session}: any) => {
                             type="tel"
                             value={formData.phone}
                             onChange={handleChange}
-                            placeholder="Enter your phone number"
+                            placeholder="Enter your phone number without dash"
                             className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"
                         />
                     </div>
@@ -157,6 +157,7 @@ export const InputForm = ({session}: any) => {
                             name="quantity"
                             type="number"
                             min={1}
+                            max={5}
                             value={formData.quantity}
                             onChange={handleChange}
                             placeholder="Enter quantity"
