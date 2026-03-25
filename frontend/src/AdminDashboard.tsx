@@ -150,7 +150,7 @@ export const AdminDashboard = () => {
                                         <select className="border-b px-4 py-3"
                                                 onChange={()=>updatedStatus(order.id)}>
                                             <option key={order.status} value={order.status}>{order.status}</option>
-                                            <option key={status[0].label} value={status[0].value}>{status[0].label}</option>
+                                            {order.status !== "confirmed" && <option key={status[0].label} value={status[0].value}>{status[0].label}</option>}
                                             {order.status === 'Confirmed' && <option key={status[1].label} value={status[1].value}>{status[1].label}</option>}
                                         </select>
                                     </td>

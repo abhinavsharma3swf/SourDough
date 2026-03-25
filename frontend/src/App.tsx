@@ -10,6 +10,7 @@ import {useEffect, useState} from "react";
 import type {Session} from "@supabase/supabase-js";
 import {createClient} from "@supabase/supabase-js";
 import {OurStoryPage} from "./OurStoryPage";
+import {UserHistory} from "./UserHistory";
 
 const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
@@ -76,8 +77,10 @@ function App() {
                 </div>
 
 
-                <div className="flex align-end gap-3">
-                    {session ? <></> :
+                <div className="flex flex-colflex align-end gap-3">
+                    {session ?
+                        <>
+                        </> :
                         <>
 
                             <Link
@@ -97,12 +100,23 @@ function App() {
                 </div>
 
                 {session && (
+
+                    <div className="flex justify-end gap-3">
+                        <Link
+                            to="/history"
+                            className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
+                        >
+                            History
+                        </Link>
+
+
                     <button
                         onClick={handleLogout}
                         className="rounded-xl bg-red-800 px-4 py-2 text-white font-semibold"
                     >
                         Logout
                     </button>
+                    </div>
                 )}
             </div>
 
@@ -122,6 +136,10 @@ function App() {
                 <Route
                     path="/form"
                     element={session ? <InputForm session={session}/> : <Navigate to="/" replace/>}
+                />
+                <Route
+                    path="/history"
+                    element={<UserHistory/>}
                 />
                 <Route path="/admin" element={<AdminLogin/>}/>
                 <Route path="/dashboard" element={<AdminDashboard/>}/>
