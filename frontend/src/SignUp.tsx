@@ -48,7 +48,7 @@ export const SignUp = () => {
             setLoading(false);
             return;
         }
-        setSuccessMessage("Account created.");
+        setSuccessMessage("Account created. Please check your email for verification");
         setSignUpFormData({
             email: "",
             password: "",
