@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {createClient} from "@supabase/supabase-js";
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 
 const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
@@ -28,13 +28,15 @@ export const SignUp = () => {
         setSignUpFormData((prev) => ({ ...prev, [name]: value }));
     }
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setErrorMessage("");
         setSuccessMessage("");
         setLoading(true);
+
 
         const { email, password } = signUpFormData;
 
@@ -53,17 +55,15 @@ export const SignUp = () => {
             email: "",
             password: "",
         });
-
         setLoading(false);
-        navigate("/login");
+        // navigate("/login");
     };
-
-
     return (
         <div
             className="min-h-screen bg-gradient-to-br from-pink-100 via-indigo-50 to-cyan-100 flex items-center justify-center p-6">
             <div className="w-full max-w-md rounded-2xl bg-white shadow-2xl p-7 border border-gray-100">
                 <h2 className="text-3xl font-bold text-gray-800 mb-5">Sign Up Form</h2>
+
 
                 <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
                     <div>
@@ -109,7 +109,6 @@ export const SignUp = () => {
                         </p>
                     )}
 
-
                     <button
                         type="submit"
                         disabled={loading}
@@ -117,7 +116,7 @@ export const SignUp = () => {
                     >
                         Sign Up
                     </button>
-                    {loading ? "Creating account..." : "Sign Up"}
+                    {loading ? "Creating account..." : ""}
                 </form>
             </div>
         </div>

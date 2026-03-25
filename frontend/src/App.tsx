@@ -54,6 +54,7 @@ function App() {
     setTimeout(handleLogout, 600000);
 
     const [aFlag, setAFlag] = useState<boolean>(false)
+    const [loginFlag, setLoginFlag] = useState<boolean>(false)
 
     return (
         <div>
@@ -84,15 +85,27 @@ function App() {
                         </> :
                         <>
 
-                            <Link
+                        {!loginFlag && <Link
                                 to="/signup"
                                 className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
+                                onClick={()=> setLoginFlag(true)}
                             >
                                 Sign-Up
-                            </Link>
+                            </Link>}
+
+                            {loginFlag &&
+                                <Link
+                                    to="/login"
+                                    className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
+                                    onClick={()=> setLoginFlag(false)}
+                                >
+                                    Login
+                                </Link>
+                            }
                             <Link
                                 to="/home"
                                 className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
+                                onClick={()=> setLoginFlag(false)}
                             >
                                 Home
                             </Link>
