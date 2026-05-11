@@ -143,7 +143,10 @@ export const AdminDashboard = () => {
                                 <tr key={order.id}>
                                     <td className="border-b px-4 py-3">{order.id}</td>
                                     <td className="border-b px-4 py-3">{order.name}</td>
-                                    <td className="border-b px-4 py-3">{order.email}</td>
+                                    <td className="border-b px-4 py-3">
+                                        <a target="_blank" href={`mailto:${order.email}`}> {order.email}
+                                        </a>
+                                    </td>
                                     <td className="border-b px-4 py-3">{order.phone}</td>
                                     <td className="border-b px-4 py-3">{order.quantity}</td>
                                     <td className="border-b px-4 py-3">
