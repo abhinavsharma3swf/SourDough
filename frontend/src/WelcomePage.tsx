@@ -7,8 +7,8 @@ export function WelcomePage() {
                     {/* NAV */}
                     <nav className="mx-auto flex w-fit rounded-full bg-[#9a5a32] px-6 py-2 shadow-md">
                         <div className="flex items-center gap-6 text-sm font-bold text-amber-50">
-                            <a href="/">Home</a>
-                            <a href="/about">About</a>
+                            <a href="/login">Home</a>
+                            <a href="/about" >About</a>
                             <a href="/login">Login</a>
                         </div>
                     </nav>
