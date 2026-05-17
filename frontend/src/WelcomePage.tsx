@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function WelcomePage() {
     return (
         <main className="min-h-screen bg-[#efbd84]">
@@ -7,9 +9,9 @@ export function WelcomePage() {
                     {/* NAV */}
                     <nav className="mx-auto flex w-fit rounded-full bg-[#9a5a32] px-6 py-2 shadow-md">
                         <div className="flex items-center gap-6 text-sm font-bold text-amber-50">
-                            <a href="/login">Home</a>
-                            <a href="/about" >About</a>
-                            <a href="/login">Login</a>
+                            <Link to="/">Home</Link>
+                            <Link to="/about">About</Link>
+                            <Link to="/login">Login</Link>
                         </div>
                     </nav>
 
