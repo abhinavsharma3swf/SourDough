@@ -10,6 +10,7 @@ import type {Session} from "@supabase/supabase-js";
 import {createClient} from "@supabase/supabase-js";
 import {OurStoryPage} from "./OurStoryPage";
 import {UserHistory} from "./UserHistory";
+import {WelcomePage} from "./WelcomePage";
 
 const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
@@ -57,90 +58,103 @@ function App() {
     const [loginFlag, setLoginFlag] = useState<boolean>(false)
 
     return (
-        <div>
-            <div
-                className="bg-gradient-to-br from-amber-200 via-orange-100 to-yellow-50 relative flex items-center justify-between p-4">
-                {/* LEFT */}
-                <div className="flex items-center gap-3">
-                    <img
-                        src="/sourdoughlogo.PNG"
-                        alt="logo"
-                        className="w-12 h-12 object-contain"
-                    />
-                    <div className="flex flex-col">
-                        <span className="font-semibold text-gray-800">Sourdough</span>
-                        <span className="text-xs text-gray-500">Homemade Bread</span>
-                    </div>
-                </div>
+        <div className="bg-red">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 
-                {/* CENTER (absolute for true centering) */}
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                    <span className="italic text-4xl underline">Homemade Sourdough Bread</span>
-                </div>
+                {/*/!* LEFT *!/*/}
+                {/*<div className="flex items-center gap-3">*/}
+                {/*    <img*/}
+                {/*        src="/sourdoughlogo.PNG"*/}
+                {/*        alt="Sourdough logo"*/}
+                {/*        className="w-12 h-12 object-contain shrink-0"*/}
+                {/*    />*/}
+
+                {/*    <div className="flex flex-col">*/}
+                {/*            <span className="font-semibold text-gray-800">*/}
+                {/*              Sourdough*/}
+                {/*            </span>*/}
+                {/*            <span className="text-xs text-gray-500">*/}
+                {/*                Homemade Bread*/}
+                {/*            </span>*/}
 
 
-                <div className="flex flex-colflex align-end gap-3">
-                    {session ?
-                        <>
-                        </> :
-                        <>
+                {/*        /!* CENTER / TITLE *!/*/}
+                {/*        <div className="text-center sm:flex-1">*/}
+                {/*              <span className="italic underline text-xl sm:text-2xl md:text-3xl text-gray-800">*/}
+                {/*                Homemade Sourdough Bread*/}
+                {/*              </span>*/}
+                {/*        </div>*/}
 
-                        {!loginFlag && <Link
-                                to="/signup"
+                {/*        /!* RIGHT SPACER *!/*/}
+                {/*        <div className="hidden sm:block w-[180px]"/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+
+
+                {/*<div className="flex flex-colflex align-end gap-3">*/}
+                {/*    {session ?*/}
+                {/*        <>*/}
+                {/*        </> :*/}
+                {/*        <>*/}
+
+                {/*            {!loginFlag && <Link*/}
+                {/*                to="/signup"*/}
+                {/*                className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"*/}
+                {/*                onClick={() => setLoginFlag(true)}*/}
+                {/*            >*/}
+                {/*                Sign-Up*/}
+                {/*            </Link>}*/}
+
+                {/*            {loginFlag &&*/}
+                {/*                <Link*/}
+                {/*                    to="/login"*/}
+                {/*                    className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"*/}
+                {/*                    onClick={() => setLoginFlag(false)}*/}
+                {/*                >*/}
+                {/*                    Login*/}
+                {/*                </Link>*/}
+                {/*            }*/}
+                {/*            <Link*/}
+                {/*                to="/home"*/}
+                {/*                className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"*/}
+                {/*                onClick={() => setLoginFlag(false)}*/}
+                {/*            >*/}
+                {/*                Home*/}
+                {/*            </Link>*/}
+                {/*        </>*/}
+                {/*    }*/}
+                {/*</div>*/}
+
+                {
+                    session && (
+
+                        <div className="flex justify-end gap-3">
+                            {!aFlag && <Link
+                                to="/history"
                                 className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
-                                onClick={()=> setLoginFlag(true)}
+                                onClick={() => setAFlag(true)}
                             >
-                                Sign-Up
+                                History
                             </Link>}
 
-                            {loginFlag &&
-                                <Link
-                                    to="/login"
-                                    className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
-                                    onClick={()=> setLoginFlag(false)}
-                                >
-                                    Login
-                                </Link>
-                            }
-                            <Link
-                                to="/home"
+                            {aFlag && <Link
+                                to="/form"
                                 className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
-                                onClick={()=> setLoginFlag(false)}
+                                onClick={() => setAFlag(false)}
                             >
-                                Home
-                            </Link>
-                        </>
-                    }
-                </div>
-
-                {session && (
-
-                    <div className="flex justify-end gap-3">
-                        {!aFlag && <Link
-                            to="/history"
-                            className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
-                            onClick={() => setAFlag(true)}
-                        >
-                            History
-                        </Link>}
-
-                        {aFlag && <Link
-                            to="/form"
-                            className="rounded-lg bg-blue-600 px-4 py-2 text-white font-semibold"
-                            onClick={() => setAFlag(false)}
-                        >
-                            Place An Order
-                        </Link>}
+                                Place An Order
+                            </Link>}
 
 
-                        <button
-                            onClick={handleLogout}
-                            className="rounded-xl bg-red-800 px-4 py-2 text-white font-semibold"
-                        >
-                            Logout
-                        </button>
-                    </div>
-                )}
+                            <button
+                                onClick={handleLogout}
+                                className="rounded-xl bg-red-800 px-4 py-2 text-white font-semibold"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    )
+                }
             </div>
 
             <div className="flex justify-end gap-3">
@@ -153,7 +167,8 @@ function App() {
             </div>
 
             <Routes>
-                <Route path="/" element={<OurStoryPage session={session}/>}/>
+                <Route path="/" element={<WelcomePage/>}/>
+                <Route path="/about" element={<OurStoryPage session={session}/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route
@@ -171,7 +186,7 @@ function App() {
 
             <Analytics/>
         </div>
-    );
+    )
 }
 
 export default App;

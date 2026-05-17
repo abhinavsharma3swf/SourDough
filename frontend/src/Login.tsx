@@ -67,18 +67,28 @@ export const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-pink-100 via-indigo-50 to-cyan-100 flex items-center justify-center p-6">
-            <div className="w-full max-w-md rounded-2xl bg-white shadow-2xl p-7 border border-gray-100">
-                <h2 className="text-3xl font-bold text-gray-800 mb-2">Log In</h2>
-                <p className="text-sm text-gray-500 mb-5">
-                    Log in to view and manage your bread orders.
+        <div className="flex min-h-screen items-center justify-center bg-[#efbd84] p-6">
+            <div className="w-full max-w-md rounded-[2rem] border border-[#f8d39f] bg-[#fff4cf] p-8 shadow-2xl">
+                <h2
+                    className="mb-2 text-4xl font-black text-[#6b2d05]"
+                    style={{ fontFamily: "Cooper Black, serif" }}
+                >
+                    Log In
+                </h2>
+
+                <p className="mb-6 text-sm leading-6 text-[#7a3f16]">
+                    Log in to place, view, and manage your sourdough bread orders.
                 </p>
 
                 <form className="grid grid-cols-1 gap-6" onSubmit={handleLogin}>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
+                        <label
+                            htmlFor="email"
+                            className="mb-1 block text-sm font-bold text-[#5a2605]"
+                        >
                             Email
                         </label>
+
                         <input
                             required
                             id="email"
@@ -87,14 +97,18 @@ export const Login = () => {
                             value={loginFormData.email}
                             onChange={handleChange}
                             placeholder="Enter your email"
-                            className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"
+                            className="w-full rounded-xl border border-[#d89a5f] bg-[#fffaf0] px-4 py-3 text-[#4b2105] outline-none placeholder:text-[#9a6a45] focus:border-[#6b2d05] focus:ring-2 focus:ring-[#9a5a32]"
                         />
                     </div>
 
                     <div>
-                        <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-1">
+                        <label
+                            htmlFor="password"
+                            className="mb-1 block text-sm font-bold text-[#5a2605]"
+                        >
                             Password
                         </label>
+
                         <input
                             required
                             id="password"
@@ -103,12 +117,12 @@ export const Login = () => {
                             value={loginFormData.password}
                             onChange={handleChange}
                             placeholder="Enter your password"
-                            className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-400"
+                            className="w-full rounded-xl border border-[#d89a5f] bg-[#fffaf0] px-4 py-3 text-[#4b2105] outline-none placeholder:text-[#9a6a45] focus:border-[#6b2d05] focus:ring-2 focus:ring-[#9a5a32]"
                         />
                     </div>
 
                     {errorMessage && (
-                        <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
+                        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
                             {errorMessage}
                         </p>
                     )}
@@ -116,7 +130,7 @@ export const Login = () => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="mt-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-4 py-3 text-white font-semibold shadow-lg hover:scale-[1.02] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="mt-2 rounded-full bg-[#6b2d05] px-4 py-3 font-bold text-[#fff4cf] shadow-lg transition hover:bg-[#552304] hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                         {loading ? "Logging in..." : "Log In"}
                     </button>
