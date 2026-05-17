@@ -55,7 +55,7 @@ function App() {
     setTimeout(handleLogout, 600000);
 
     const [aFlag, setAFlag] = useState<boolean>(false)
-    const [loginFlag, setLoginFlag] = useState<boolean>(false)
+    // const [loginFlag, setLoginFlag] = useState<boolean>(false)
 
     return (
         <div className="bg-red">
@@ -168,7 +168,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<WelcomePage/>}/>
-                <Route path="/about" element={<OurStoryPage session={session}/>}/>
+                <Route path="/about" element={<OurStoryPage/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route

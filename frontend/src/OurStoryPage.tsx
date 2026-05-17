@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {useEffect, useState} from "react";
 
-export const OurStoryPage = ({session} : any) => {
+export const OurStoryPage = () => {
 
     const [showOrderPopup, setShowOrderPopup] = useState(false);
 
